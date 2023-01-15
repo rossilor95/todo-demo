@@ -12,6 +12,8 @@ const NewTodoForm: FC<NewTodoFormProps> = ({ addTodo }) => {
   const submitTodo = () => {
     if (assigned.trim().length !== 0 && description.trim().length !== 0) {
       addTodo(assigned, description);
+      setAssigned('');
+      setDescription('');
     }
   };
 
