@@ -10,7 +10,8 @@ import {
 import { FC } from 'react'
 
 interface Todo {
-  id: number;
+  id: string;
+  order: number;
   description: string;
   assigned: string;
 }
@@ -36,7 +37,7 @@ const TodoTable: FC<TodoTableProps> = ({ todos }) => {
           {
             todos.map(todo =>
               <TableRow hover key={todo.id}>
-                <TableCell>{todo.id}</TableCell>
+                <TableCell>{todo.order}</TableCell>
                 <TableCell>{todo.description}</TableCell>
                 <TableCell>{todo.assigned}</TableCell>
               </TableRow>,
