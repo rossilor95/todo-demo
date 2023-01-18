@@ -6,12 +6,11 @@ import {
   TableContainer,
   TableHead,
   TableRow,
-} from '@mui/material'
-import { FC } from 'react'
+} from '@mui/material';
+import { FC } from 'react';
 
 interface Todo {
   id: string;
-  order: number;
   description: string;
   assigned: string;
 }
@@ -35,9 +34,9 @@ const TodoTable: FC<TodoTableProps> = ({ todos }) => {
 
         <TableBody>
           {
-            todos.map(todo =>
+            todos.map((todo, index) =>
               <TableRow hover key={todo.id}>
-                <TableCell>{todo.order}</TableCell>
+                <TableCell>{index + 1}</TableCell>
                 <TableCell>{todo.description}</TableCell>
                 <TableCell>{todo.assigned}</TableCell>
               </TableRow>,
@@ -46,7 +45,7 @@ const TodoTable: FC<TodoTableProps> = ({ todos }) => {
         </TableBody>
       </Table>
     </TableContainer>
-  )
-}
+  );
+};
 
-export default TodoTable
+export default TodoTable;
