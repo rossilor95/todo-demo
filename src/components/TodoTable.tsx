@@ -1,4 +1,5 @@
 import {
+  IconButton,
   Paper,
   Table,
   TableBody,
@@ -7,19 +8,19 @@ import {
   TableHead,
   TableRow,
 } from '@mui/material';
-import { FC } from 'react';
+import React, { FC } from 'react';
+import { Delete } from '@mui/icons-material';
+import { Todo } from '../types/Todo';
 
-interface Todo {
-  id: string;
-  description: string;
-  assigned: string;
-}
+
 
 interface TodoTableProps {
   todos: Todo[];
+  deleteTodo: (id: string) => void;
+  // editTodo: (id: string) => void;
 }
 
-const TodoTable: FC<TodoTableProps> = ({ todos }) => {
+const TodoTable: FC<TodoTableProps> = ({ todos, deleteTodo }) => {
   return (
     <TableContainer component={Paper}>
       <Table aria-label="Todo table">
@@ -29,6 +30,7 @@ const TodoTable: FC<TodoTableProps> = ({ todos }) => {
             <TableCell>#</TableCell>
             <TableCell>Description</TableCell>
             <TableCell>Assigned</TableCell>
+            <TableCell></TableCell>
           </TableRow>
         </TableHead>
 
@@ -39,9 +41,15 @@ const TodoTable: FC<TodoTableProps> = ({ todos }) => {
                 <TableCell>{index + 1}</TableCell>
                 <TableCell>{todo.description}</TableCell>
                 <TableCell>{todo.assigned}</TableCell>
+                <TableCell align="right">
+                  <IconButton onClick={() => deleteTodo(todo.id)}>
+                    <Delete fontSize="small"/>
+                  </IconButton>
+                </TableCell>
               </TableRow>,
             )
           }
+
         </TableBody>
       </Table>
     </TableContainer>

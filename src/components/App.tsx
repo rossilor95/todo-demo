@@ -4,8 +4,9 @@ import Header from './Header';
 import { useState } from 'react';
 import NewTodoForm from './NewTodoForm';
 import { nanoid } from 'nanoid';
+import { Todo } from '../types/Todo';
 
-const TodoDemoApp = () => {
+const App = () => {
   const [todos, setTodos] = useState([
     { id: nanoid(), description: 'Feed puppy', assigned: 'User One' },
     { id: nanoid(), description: 'Water plants', assigned: 'User Two' },
@@ -14,30 +15,36 @@ const TodoDemoApp = () => {
   ]);
 
   const addTodo = (assigned: string, description: string) => {
-    const newTodo = {
+    const newTodo: Todo = {
       id: nanoid(),
       description: description,
       assigned: assigned,
     };
-    setTodos((todos) => [...todos, newTodo]);
+    setTodos(todos => [...todos, newTodo]);
   };
+
+  const deleteTodo = (id: string) => (
+    setTodos(todos.filter(todo => todo.id !== id))
+  );
 
   return (
     <>
       <Header/>
       <Box mx={40} my={8}>
         <Stack spacing={4}>
-          <TodoTable todos={todos}/>
+          <TodoTable todos={todos} deleteTodo={deleteTodo}/>
           <Stack flexDirection="row">
             <Button variant="contained">
               Add new todo
             </Button>
           </Stack>
         </Stack>
-        <NewTodoForm addTodo={addTodo}/>
+        <NewTodoForm
+          addTodo={addTodo}
+        />
       </Box>
     </>
   );
 };
 
-export default TodoDemoApp;
+export default App;
