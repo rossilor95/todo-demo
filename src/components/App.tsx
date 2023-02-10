@@ -1,10 +1,10 @@
 import TodoTable from './TodoTable';
-import { Box, Button, Stack } from '@mui/material';
+import { Box } from '@mui/material';
 import Header from './Header';
 import { useState } from 'react';
 import NewTodoForm from './NewTodoForm';
 import { nanoid } from 'nanoid';
-import { Todo } from '../types/Todo';
+import { Todo } from '../interfaces/Todo';
 
 const App = () => {
   const [todos, setTodos] = useState([

@@ -10,7 +10,7 @@ import {
 } from '@mui/material';
 import React, { FC } from 'react';
 import { Delete } from '@mui/icons-material';
-import { Todo } from '../types/Todo';
+import { Todo } from '../interfaces/Todo';
 
 
 
