@@ -31,7 +31,14 @@ const App = () => {
     <>
       <Header/>
       <Box mx={40} my={8}>
-        <TodoTable todos={todos} deleteTodo={deleteTodo}/>
+        <Stack spacing={4}>
+          <TodoTable todos={todos} deleteTodo={deleteTodo}/>
+          <Stack flexDirection="row">
+            <Button variant="contained">
+              Add new todo
+            </Button>
+          </Stack>
+        </Stack>
         <NewTodoForm
           addTodo={addTodo}
         />
