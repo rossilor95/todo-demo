@@ -38,7 +38,7 @@ const App = () => {
           <Stack flexDirection="row">
             <Button variant="contained" onClick={() => setFormVisible(!isFormVisible)}>
               {
-                isFormVisible ? "Close form" : "Open form"
+                isFormVisible ? 'Cancel' : 'Create new todo'
               }
             </Button>
           </Stack>
