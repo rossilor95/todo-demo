@@ -13,7 +13,6 @@ import { Delete } from '@mui/icons-material';
 import { Todo } from '../interfaces/Todo';
 
 
-
 interface TodoTableProps {
   todos: Todo[];
   deleteTodo: (id: string) => void;
